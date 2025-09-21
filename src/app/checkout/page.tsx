@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { UseCart } from "../context/Cartcontext";
-import { getProductDetails } from "../actions/product.action";
 import { getCashPayment, getOnlinePayment } from "../actions/Payment.action";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -55,7 +54,7 @@ export default function Checkoutpage() {
     else if(PaymentMethod==="online"){
 
           try {
-      const response = await getOnlinePayment(cartId as string, values);
+      const response = await getOnlinePayment(cartId as string,{ shippingAddress: values });
       
       console.log(response, "checkout");
 
