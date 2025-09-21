@@ -1,24 +1,33 @@
-import React, { use } from "react";
+import React  from "react";
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
-  CardHeader,
-  CardTitle,
+
 } from "@/components/ui/card";
 import Image from "next/image";
 import { getCategories } from "@/app/actions/categories.action";
-import { log } from "console";
+
+
+export interface ICategory {
+  _id: string;
+  name: string;
+  slug: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+
 export default async function ProductCategories() {
+  
   const response = await getCategories();
 
   console.log(response);
 
   return (
     < >
-      {response?.data.map((cat:any) => (
+      {response?.data.map((cat:ICategory) => (
         <Card key={cat._id} className="hover:shadow-lg cursor-pointer duration-500 hover:shadow-green-300 border-0" >
           <CardContent>
             <div className="w-full relative h-[250px]">

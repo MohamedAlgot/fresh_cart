@@ -32,7 +32,7 @@ export interface IProductDetails {
   sold: number;
   ratingsAverage: number;
   ratingsQuantity: number;
-  reviews: any[]; // if you have review interface you can replace `any[]`
+  reviews: unknown; // if you have review interface you can replace `any[]`
   brand: IBrand;
   category: ICategory;
   subcategory: ISubCategory[];

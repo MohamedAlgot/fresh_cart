@@ -9,7 +9,7 @@ import { redirect, useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-export default function changePassword() {
+export default function ChangePassword() {
   interface Inputs {
     email: string;
   }
